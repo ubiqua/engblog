@@ -15,6 +15,6 @@ Our solution was to gradually increase our test coverage, until we reached a poi
 2. Bug fixes must include a corresponding regression test.
 3. One test must be added to the existing codebase every week.
 
-As we approach the end of this quarter, we're very close to achieving our goal, and very soon we'll be able to start refactoring our legacy code. It's been a slow process, but it's had minimal impact on our team's performance, which was really important for getting team buy in.
+As we approach the end of this quarter, we're very close to achieving our goal, and soon we'll be able to start refactoring our legacy code. It's been a slow process, but it's had minimal impact on our team's performance, which was really important for getting developer buy in.
 
 On our next posts I'll go into more detail on which type of tests we wrote, and some tips on how to avoid writing tests from becoming a burden.
