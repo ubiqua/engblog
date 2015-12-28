@@ -1,30 +1,20 @@
 # Refactoring Legacy Code
+Even though there's some debate on the programming community about [what is considered legacy code](http://programmers.stackexchange.com/questions/94007/when-is-code-legacy), at Ubiqua we define it as:
 
-## Our Problem
-A lot of code achieved "legacy" status, ie:
-- code that gets the job done, but
-- no one fully understands how it works
+Code that gets the job done, but
+- no one on the team fully understands how it works
 - adding new features or trying to refactor it is error prone
 
-## How did it happen? / Why didn't you fix it earlier?
-This is a problem that creeps up on software projects. When you're getting started, you can get away with almost anything, including poorly designed code. At this stage, developers tend to focus on adding features (which provide immediate business value) and forget about code quality tasks (testing, refactoring, documenting, etc). Once you realize it's a problem, you're already knee deep into it.
+In other words, if you're trying to fix a bug or add a new feature, but you're afraid you'll break something, then you're dealing with legacy code.
 
-## Proposed Solution
-- Add E2E tests for our main features
-These tests treat the app as a huge black box, like a user would.
-They will allow us to re-design and refactor big chunks of our app without the fear of making the app unusable.
+As our project grew in complexity, we noticed more and more code was achieving "legacy" status, so we decided we had to take some action before it got any worse. We knew we couldn't stop adding features or fixing bugs, and we didn't have enough resources to rewrite everything from scratch. We had to come up with a plan that was reasonable within our constraints, something we wouldn't be forced to abandon a few weeks later.
 
-- Add Unit Tests for modules we want to keep
-If a module has a good interface, but a bad internal implementation, we can add unit tests for it and then refactor with confidence.
+## Plan of Action
+Our solution was to gradually increase our test coverage, until we reached a point where we could safely refactor the old code. So we came up with some simple rules for the team:
+1. All new features must include tests (bonus points for using TDD).
+2. Bug fixes must include a corresponding regression test.
+3. One test must be added to the existing codebase every week.
 
-## Approach
-Gradually increase coverage.
-- New features must include tests (bonus points for using TDD)
-- Bug fixes must include a regression test.
-- Identify main app features and start adding E2E tests for each one (one per week?).
+As we approach the end of this quarter, we're very close to achieving our goal, and very soon we'll be able to start refactoring our legacy code. It's been a slow process, but it's had minimal impact on our team's performance, which was really important for getting team buy in.
 
-After a while, you'll have enough confidence on your test suite to start refactoring your code.
-
-## Tools Chosen
-Cucumber for E2E tests
-RSpec and Jasmine for unit tests
+On our next posts I'll go into more detail on which type of tests we wrote, and some tips on how to avoid writing tests from becoming a burden.
