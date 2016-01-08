@@ -15,7 +15,9 @@ E2E tests work a lot better for this purpose, since they test the app from a use
 ## Speed
 E2E tests are slow because actions run through a user interface (a browser if it's a web application). However, not **all** of your actions need to run through the UI. For example, if you're writing a test for user checkout, you can setup the context (create a user, create products, etc) using your ORM, and only run the steps related to checkout on the browser.
 
-Also, make sure to choose an appropiate cleanup strategy for your database. Unit tests tend to use the transaction strategy, ie: every test runs in a transaction that is rolled back at the end of the test. Transactions are very fast, but they don't work for E2E tests. On E2E tests, the test and the browser run in two different processes, each with separate database connections. That's why E2E tests tend to use the much slower truncation strategy, ie: writing to the db, then removing all data at the end of each test. However, depending on your database, there might be [other options](http://dev.alexishevia.com/2014/01/resetting-your-postgres-database-before.html) to consider.
+Also, make sure to choose an appropiate cleanup strategy for your database. Unit tests tend to use the transaction strategy, ie: every test runs in a transaction that is rolled back at the end of the test. Transactions are very fast, but they don't work for E2E tests. 
+
+On E2E tests, the test and the browser run in two different processes, each with separate database connections. That's why E2E tests tend to use the much slower truncation strategy, ie: writing to the db, then removing all data at the end of each test. However, depending on your database, there might be [other options](http://dev.alexishevia.com/2014/01/resetting-your-postgres-database-before.html) to consider.
 
 Finally, make sure to manually handle the system clock. For example, instead of waiting 10 seconds for a callback to run, simulate the passage of time using a tool like [Timecop](https://github.com/travisjeffery/timecop) or [SinonJS](http://sinonjs.org/docs/#clock).
 
