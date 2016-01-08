@@ -1,3 +1,5 @@
+# Tips for E2E testing
+
 On a [previous post](https://github.com/ubiqua/engblog/blob/refactoring_legacy_code/refactoring_legacy_code.md), I explained our team's plan to reduce legacy code by increasing test coverage. On this post I'll go a bit more into detail about how we approached that task and the specific tools we used.
 
 ## E2E vs Unit Tests
