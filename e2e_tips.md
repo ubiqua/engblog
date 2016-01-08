@@ -26,18 +26,18 @@ Always keep in mind that tests are code too, and as such the same principles app
 
 If you're using a tool like [Cucumber](https://cucumber.io/), these tips might help you organize your tests:
 
-- Keep Cucumber features expressed at a business level.
+- Keep Cucumber features expressed at a business level.  
 Avoid steps like "Visit the product page", "Click on the link that says Foo", "Drag the item to the bottom". Those are all implementation details, which belong inside step definitions. Instead, prefer steps like "Register as a store owner", "Add product foo to the cart", "Leave positive feedback". Features should define *what* the user is doing, not *how* he is doing it.
 
-- Organize step definitions in a consistent folder structure.
+- Organize step definitions in a consistent folder structure.  
 Developers should be able to read a step and immediately know where to look for the step definition. The sorting criteria isn't as important as being consistent.
 
-We use a very simple rule: look for the first noun in the step; the step definition should be in a file called `[noun]_steps.rb`. Eg: The step definition for "Add product to the cart" would be on `product_steps.rb`.
+  We use a very simple rule: look for the first noun in the step; the step definition should be in a file called `[noun]_steps.rb`. Eg: The step definition for "Add product to the cart" would be on `product_steps.rb`.
 
-- DON'T call step definitions from other step definitions.
+- DON'T call step definitions from other step definitions.  
 Instead, move reusable code into support modules.
 
-- Move UI handling to Page Objects
+- Move UI handling to Page Objects  
 Martin Fowler has a [great post](http://martinfowler.com/bliki/PageObject.html) on how to use Page Objects to keep your tests easier to read and maintain.
 
 ## Reliability
@@ -46,8 +46,8 @@ One of the most common problems I've seen with E2E tests is false-positives and 
 However, you can't let false-positives/negatives flood your test codebase. Once you become used to brittle tests, your whole test suite becomes pointless.
 
 Some of the root causes I've seen for brittle E2E tests are:
-- Time-related features
+- Time-related features  
 If you have code that depends on time (callbacks that run after a timeout, for example), getting them to work correctly on your tests can be difficult. Tools like [Timecop](https://github.com/travisjeffery/timecop) and [SinonJS](http://sinonjs.org/docs/#clock) help a lot when dealing with these features.
 
-- DOM altering features
+- DOM altering features  
 Keep in mind your JS code might need to remove or add DOM elements before reaching the desired state. Make sure to use retries and give components the time they need to finish before running assertions.
