@@ -11,6 +11,7 @@ As our project grew in complexity, we noticed more and more code was achieving "
 
 ## Plan of Action
 Our solution was to gradually increase our test coverage, until we reached a point where we could safely refactor the old code. So we came up with some simple rules for the team:
+
 1. All new features must include tests (bonus points for using TDD).
 2. Bug fixes must include a corresponding regression test.
 3. One test must be added to the existing codebase every week.
